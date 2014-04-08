@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-	id="org.apache.cordova.plugin.tts"
-	version="0.2.0">
+	id="com.geotab.phonegap.tts"
+	version="0.0.1">
   
   <name>TTS</name>
-  <description>Cordova TTS Plugin</description>
-  <license>Apache 2.0</license>
-  <keywords>cordova,tts</keywords>
+  <description>Phonegap TTS Plugin</description>
+  <keywords>phonegap,cordova,tts</keywords>
+  
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
   
   <js-module src="www/tts.js" name="tts">
     <clobbers target="navigator.tts" />
@@ -17,11 +20,11 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="TTS">
-	<param name="android-package" value="org.apache.cordova.plugin.TTS"/>
+	<param name="android-package" value="com.geotab.phonegap.tts"/>
       </feature>
     </config-file>
     
-    <source-file src="src/android/TTS.java" target-dir="src/org/apache/cordova/plugin/" />
+    <source-file src="src/android/com/geotab/phonegap/TTS.java" target-dir="src/com/geotab/phonegap/tts" />
     
   </platform>
   
@@ -29,11 +32,11 @@
   <platform name="amazon-fireos">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="TTS">
-	<param name="android-package" value="org.apache.cordova.plugin.TTS"/>
+	<param name="android-package" value="com.geotab.phonegap.tts"/>
       </feature>
     </config-file>
     
-    <source-file src="src/android/TTS.java" target-dir="src/org/apache/cordova/plugin/" />
+    <source-file src="src/android/com/geotab/phonegap/TTS.java" target-dir="src/com/geotab/phonegap/tts" />
     
   </platform>
 </plugin>
