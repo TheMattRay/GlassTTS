@@ -8,6 +8,8 @@
   <description>Phonegap TTS Plugin</description>
   <keywords>phonegap,cordova,tts</keywords>
   
+  <license>MIT</license>
+
   <engines>
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
