@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="com.themattray.phonegap.tts"
-        version="0.0.1">
+        version="0.0.2">
   
   <name>TTS</name>
   <description>Phonegap TTS Plugin</description>
@@ -15,13 +15,13 @@
   </engines>
   
   <js-module src="www/tts.js" name="tts">
-    <clobbers target="tts" />
+    <clobbers target="window.tts" />
   </js-module>
   
   <!-- android -->
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="TTS">
+      <feature name="tts">
         <param name="android-package" value="com.themattray.phonegap.tts"/>
         <param name="onload" value="true"/>
       </feature>
@@ -34,7 +34,7 @@
   <!-- android -->
   <platform name="amazon-fireos">
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="TTS">
+      <feature name="tts">
 	       <param name="android-package" value="com.themattray.phonegap.tts"/>
          <param name="onload" value="true"/>
       </feature>
