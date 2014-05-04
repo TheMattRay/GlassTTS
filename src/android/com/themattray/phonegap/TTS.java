@@ -8,7 +8,7 @@
  *
  */
 
-package org.apache.cordova.plugin;
+package com.themattray.phonegap.tts;
 
 import java.util.HashMap;
 import java.util.Locale;
