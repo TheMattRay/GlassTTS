@@ -24,7 +24,7 @@ var exec = require("cordova/exec");
  * tts object.
  * @constructor
  */
-function talkie() {
+function Talkie() {
     this.say = function() {
 	   alert("tts");
     }
@@ -160,4 +160,5 @@ function talkie() {
     }
 };
 
-module.exports = new talkie();
+var talkie = new Talkie();
+module.exports = talkie;
