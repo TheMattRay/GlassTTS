@@ -15,7 +15,7 @@
   </engines>
   
   <js-module src="www/tts.js" name="tts">
-    <clobbers target="navigator.tts" />
+    <clobbers target="tts" />
   </js-module>
   
   <!-- android -->
