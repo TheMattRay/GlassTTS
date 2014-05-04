@@ -14,14 +14,14 @@
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
   
-  <js-module src="www/tts.js" name="tts">
-    <clobbers target="window.tts" />
+  <js-module src="www/tts.js" name="TTS">
+    <clobbers target="Talkie" />
   </js-module>
   
   <!-- android -->
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="tts">
+      <feature name="TTS">
         <param name="android-package" value="com.themattray.phonegap.tts"/>
         <param name="onload" value="true"/>
       </feature>
@@ -34,7 +34,7 @@
   <!-- android -->
   <platform name="amazon-fireos">
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="tts">
+      <feature name="TTS">
 	       <param name="android-package" value="com.themattray.phonegap.tts"/>
          <param name="onload" value="true"/>
       </feature>
