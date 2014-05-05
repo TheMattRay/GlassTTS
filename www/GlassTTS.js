@@ -1,35 +1,6 @@
-/*
- *
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- *
-*/
-var exec = require("cordova/exec");
+var exec = require('cordova/exec');
 
-/**
- * tts object.
- * @constructor
- */
-function Talkie() {
-    this.say = function() {
-	   alert("tts");
-    }
-
-
+function GlassTTS() {
     /**
      * Play the passed in text as synthesized speech
      * 
@@ -38,7 +9,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.speak = function(text, successCallback, errorCallback) {
-	   exec(successCallback, errorCallback, "TTS", "speak", [text]);
+	   exec(successCallback, errorCallback, "GlassTTS", "speak", [text]);
     }
 
 
@@ -50,7 +21,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.interrupt = function(text, successCallback, errorCallback) {
-         exec(successCallback, errorCallback, "TTS", "interrupt", [text]);
+         exec(successCallback, errorCallback, "GlassTTS", "interrupt", [text]);
     }
 
 
@@ -62,7 +33,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.stop = function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "TTS", "stop", []);
+        exec(successCallback, errorCallback, "GlassTTS", "stop", []);
     }
 
 
@@ -74,7 +45,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.silence = function(duration, successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "TTS", "silence", [duration]);
+        exec(successCallback, errorCallback, "GlassTTS", "silence", [duration]);
     }
 
 
@@ -86,7 +57,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.speed = function(speed, successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "TTS", "speed", [speed]);
+        exec(successCallback, errorCallback, "GlassTTS", "speed", [speed]);
     }
 
 
@@ -98,7 +69,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.pitch = function(pitch, successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "TTS", "pitch", [pitch]);
+        exec(successCallback, errorCallback, "GlassTTS", "pitch", [pitch]);
     }
 
 
@@ -110,7 +81,7 @@ function Talkie() {
      */
     this.startup = function(successCallback, errorCallback) {
 	   console.log("TTS-Startup");
-        exec(successCallback, errorCallback, "TTS", "startup", []);
+        exec(successCallback, errorCallback, "GlassTTS", "startup", []);
     }
 
 
@@ -121,7 +92,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.shutdown = function(successCallback, errorCallback) {
-         exec(successCallback, errorCallback, "TTS", "shutdown", []);
+         exec(successCallback, errorCallback, "GlassTTS", "shutdown", []);
     }
 
 
@@ -133,7 +104,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.isLanguageAvailable = function(lang, successCallback, errorCallback) {
-         exec(successCallback, errorCallback, "TTS", "isLanguageAvailable", [lang]);
+         exec(successCallback, errorCallback, "GlassTTS", "isLanguageAvailable", [lang]);
     }
 
 
@@ -144,7 +115,7 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.getLanguage = function(successCallback, errorCallback) {
-         exec(successCallback, errorCallback, "TTS", "getLanguage", []);
+         exec(successCallback, errorCallback, "GlassTTS", "getLanguage", []);
     }
 
 
@@ -156,9 +127,52 @@ function Talkie() {
      * @param {Object} errorCallback
      */
     this.setLanguage = function(lang, successCallback, errorCallback) {
-         exec(successCallback, errorCallback, "TTS", "setLanguage", [lang]);
+         exec(successCallback, errorCallback, "GlassTTS", "setLanguage", [lang]);
     }
 };
 
-var talkie = new Talkie();
-module.exports = talkie;
+exports.glassTTS = new GlassTTS();
+
+// exports.speak = function(text, success, error) {
+//     exec(success, error, "GlassTTS", "speak", [text]);
+// };
+
+// exports.interrupt = function(text, success, error) {
+//     exec(success, error, "GlassTTS", "interrupt", [text]);
+// };
+
+// exports.stop = function(success, error) {
+//     exec(success, error, "GlassTTS", "stop", []);
+// };
+
+// exports.silence = function(duratio , success, error) {
+//     exec(success, error, "GlassTTS", "silence", [duration]);
+// };
+
+// exports.speed = function(speed, success, error) {
+//     exec(success, error, "GlassTTS", "speed", [speed]);
+// };
+
+// exports.pitch = function(pitch, success, error) {
+//     exec(success, error, "GlassTTS", "pitch", [pitch]);
+// };
+
+// exports.startup = function(success, error) {
+//     exec(success, error, "GlassTTS", "startup", []);
+// };
+
+// exports.shutdown = function(success, error) {
+//     exec(success, error, "GlassTTS", "shutdown", []);
+// };
+
+// exports.isLanguageAvailable = function(lang, success, error) {
+//     exec(success, error, "GlassTTS", "isLanguageAvailable", [lang]);
+// };
+
+// exports.getLanguage = function(success, error) {
+//     exec(success, error, "GlassTTS", "getLanguage", []);
+// };
+
+// exports.setLanguage = function(lang, success, error) {
+//     exec(success, error, "GlassTTS", "setLanguage", [lang]);
+// };

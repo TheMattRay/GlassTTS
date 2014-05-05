@@ -1,44 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.themattray.phonegap.tts"
-        version="0.0.2">
-  
-  <name>TTS</name>
-  <description>Phonegap TTS Plugin</description>
-  <keywords>phonegap,cordova,tts</keywords>
-  
-  <license>MIT</license>
-
-  <engines>
-    <engine name="cordova" version=">=3.0.0"/>
-  </engines>
-  
-  <js-module src="www/tts.js" name="talkie">
-    <clobbers target="talkie" />
-  </js-module>
-  
-  <!-- android -->
-  <platform name="android">
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="talkie">
-        <param name="android-package" value="com.themattray.phonegap.tts.talkie"/>
-      </feature>
-    </config-file>
-    
-    <source-file src="src/android/com/themattray/phonegap/TTS.java" target-dir="src/com/themattray/phonegap/tts" />
-    
-  </platform>
-  
-  <!-- android -->
-  <platform name="amazon-fireos">
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="talkie">
-	       <param name="android-package" value="com.themattray.phonegap.tts.talkie"/>
-      </feature>
-    </config-file>
-    
-    <source-file src="src/android/com/themattray/phonegap/TTS.java" target-dir="src/com/themattray/phonegap/tts" />
-    
-  </platform>
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.themattray.glass.plugin.tts" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>GlassTTS</name>
+	<js-module name="GlassTTS" src="www/GlassTTS.js">
+		<clobbers target="GlassTTS" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="GlassTTS">
+				<param name="android-package" value="com.themattray.glass.plugin.tts.GlassTTS" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml">
+		</config-file>
+		<source-file src="src/android/GlassTTS.java" target-dir="src/com/themattray/glass/plugin/tts/GlassTTS" />
+	</platform>
 </plugin>

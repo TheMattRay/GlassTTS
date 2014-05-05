@@ -1,31 +1,24 @@
-/*
- * PhoneGap is available under *either* the terms of the modified BSD license *or* the
- * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
- *
- * Copyright (c) 2011, IBM Corporation
- *
- * Modified by Murray Macdonald (murray@workgroup.ca) on 2012/05/30 to add support for stop(), pitch(), speed() and interrupt();
- *
- */
+package com.themattray.glass.plugin.tts;
 
-package com.themattray.phonegap.tts;
-
-import java.util.HashMap;
-import java.util.Locale;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.PluginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Locale;
+
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
 
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.PluginResult;
-
-public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCompletedListener {
+/**
+ * This class echoes a string called from JavaScript.
+ */
+public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtteranceCompletedListener {
 
     private static final String LOG_TAG = "TTS";
     private static final int STOPPED = 0;
@@ -36,10 +29,8 @@ public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCom
     private CallbackContext startupCallbackContext;
     private CallbackContext callbackContext;
 
-    //private String startupCallbackId = "";
-
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         PluginResult.Status status = PluginResult.Status.OK;
         String result = "";
         this.callbackContext = callbackContext;
@@ -130,15 +121,15 @@ public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCom
                 if (mTts == null) {
                     state = TTS.INITIALIZING;
                     mTts = new TextToSpeech(cordova.getActivity().getApplicationContext(), this);
-		    PluginResult pluginResult = new PluginResult(status, TTS.INITIALIZING);
-		    pluginResult.setKeepCallback(true);
-		    // do not send this as onInit is more reliable: domaemon
-		    // startupCallbackContext.sendPluginResult(pluginResult);
+            PluginResult pluginResult = new PluginResult(status, TTS.INITIALIZING);
+            pluginResult.setKeepCallback(true);
+            // do not send this as onInit is more reliable: domaemon
+            // startupCallbackContext.sendPluginResult(pluginResult);
                 } else {
-		    PluginResult pluginResult = new PluginResult(status, TTS.INITIALIZING);
-		    pluginResult.setKeepCallback(true);
-		    startupCallbackContext.sendPluginResult(pluginResult);
-		}
+            PluginResult pluginResult = new PluginResult(status, TTS.INITIALIZING);
+            pluginResult.setKeepCallback(true);
+            startupCallbackContext.sendPluginResult(pluginResult);
+        }
             }
             else if (action.equals("shutdown")) {
                 if (mTts != null) {
@@ -182,7 +173,7 @@ public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCom
      * @return
      */
     private boolean isReady() {
-        return (state == TTS.STARTED) ? true : false;
+        return (state == GlassTTS.STARTED) ? true : false;
     }
 
     /**
@@ -193,10 +184,10 @@ public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCom
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             state = TTS.STARTED;
-            PluginResult result = new PluginResult(PluginResult.Status.OK, TTS.STARTED);
+            PluginResult result = new PluginResult(PluginResult.Status.OK, GlassTTS.STARTED);
             result.setKeepCallback(false);
             //this.success(result, this.startupCallbackId);
-	    this.startupCallbackContext.sendPluginResult(result);
+        this.startupCallbackContext.sendPluginResult(result);
             mTts.setOnUtteranceCompletedListener(this);
 //            Putting this code in hear as a place holder. When everything moves to API level 15 or greater
 //            we'll switch over to this way of trackign progress.
@@ -226,8 +217,8 @@ public class TTS extends CordovaPlugin implements OnInitListener, OnUtteranceCom
 //            });
         }
         else if (status == TextToSpeech.ERROR) {
-            state = TTS.STOPPED;
-            PluginResult result = new PluginResult(PluginResult.Status.ERROR, TTS.STOPPED);
+            state = GlassTTS.STOPPED;
+            PluginResult result = new PluginResult(PluginResult.Status.ERROR, GlassTTS.STOPPED);
             result.setKeepCallback(false);
             this.startupCallbackContext.sendPluginResult(result);
         }
