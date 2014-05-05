@@ -1,6 +1,7 @@
 The GlassTTS PhoneGap Plugin
 ========================
-GlassTS is a simple wrapper around the native Text-to-Speech (TTS) functionality in the Android OS.
+GlassTS is a simple wrapper around the native Text-to-Speech (TTS) functionality in the Android OS. This was forked from (https://github.com/Geotab/com.geotab.phonegap.tts) which was, in turn, a fork of (https://github.com/domaemon/org.apache.cordova.plugin.tts). The plugin wrapping has been regenerated using PlugMan scaffolding.
+
 Please feel free to ask questions and provide feedback.
 
 ## Common Build Procedure
