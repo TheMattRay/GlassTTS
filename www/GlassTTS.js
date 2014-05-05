@@ -131,48 +131,4 @@ function GlassTTS() {
     }
 };
 
-exports.glassTTS = new GlassTTS();
-
-// exports.speak = function(text, success, error) {
-//     exec(success, error, "GlassTTS", "speak", [text]);
-// };
-
-// exports.interrupt = function(text, success, error) {
-//     exec(success, error, "GlassTTS", "interrupt", [text]);
-// };
-
-// exports.stop = function(success, error) {
-//     exec(success, error, "GlassTTS", "stop", []);
-// };
-
-// exports.silence = function(duratio , success, error) {
-//     exec(success, error, "GlassTTS", "silence", [duration]);
-// };
-
-// exports.speed = function(speed, success, error) {
-//     exec(success, error, "GlassTTS", "speed", [speed]);
-// };
-
-// exports.pitch = function(pitch, success, error) {
-//     exec(success, error, "GlassTTS", "pitch", [pitch]);
-// };
-
-// exports.startup = function(success, error) {
-//     exec(success, error, "GlassTTS", "startup", []);
-// };
-
-// exports.shutdown = function(success, error) {
-//     exec(success, error, "GlassTTS", "shutdown", []);
-// };
-
-// exports.isLanguageAvailable = function(lang, success, error) {
-//     exec(success, error, "GlassTTS", "isLanguageAvailable", [lang]);
-// };
-
-// exports.getLanguage = function(success, error) {
-//     exec(success, error, "GlassTTS", "getLanguage", []);
-// };
-
-// exports.setLanguage = function(lang, success, error) {
-//     exec(success, error, "GlassTTS", "setLanguage", [lang]);
-// };
+module.exports = new GlassTTS();

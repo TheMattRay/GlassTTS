@@ -2,7 +2,7 @@
 <plugin id="com.themattray.glass.plugin.tts" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>GlassTTS</name>
 	<js-module name="GlassTTS" src="www/GlassTTS.js">
-		<clobbers target="GlassTTS" />
+		<clobbers target="window.glassTTS" />
 	</js-module>
 	<platform name="android">
 		<config-file parent="/*" target="res/xml/config.xml">
