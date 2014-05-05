@@ -49,7 +49,7 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
                 } else {
                     JSONObject error = new JSONObject();
                     error.put("message","TTS service is still initialzing.");
-                    error.put("code", TTS.INITIALIZING);
+                    error.put("code", CDVGlassTTS.INITIALIZING);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, error));
                 }
             } else if (action.equals("interrupt")) {
@@ -65,7 +65,7 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
                 } else {
                     JSONObject error = new JSONObject();
                     error.put("message","TTS service is still initialzing.");
-                    error.put("code", TTS.INITIALIZING);
+                    error.put("code", CDVGlassTTS.INITIALIZING);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, error));
                 }
             } else if (action.equals("stop")) {
@@ -75,7 +75,7 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
                 } else {
                     JSONObject error = new JSONObject();
                     error.put("message","TTS service is still initialzing.");
-                    error.put("code", TTS.INITIALIZING);
+                    error.put("code", CDVCDVGlassTTS.INITIALIZING);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, error));
                 }
             } else if (action.equals("silence")) {
@@ -90,7 +90,7 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
                 } else {
                     JSONObject error = new JSONObject();
                     error.put("message","TTS service is still initialzing.");
-                    error.put("code", TTS.INITIALIZING);
+                    error.put("code", GlassTTS.INITIALIZING);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, error));
                 }
             } else if (action.equals("speed")) {
@@ -101,7 +101,7 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
                 } else {
                     JSONObject error = new JSONObject();
                     error.put("message","TTS service is still initialzing.");
-                    error.put("code", TTS.INITIALIZING);
+                    error.put("code", CDVGlassTTS.INITIALIZING);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, error));
                 }
             } else if (action.equals("pitch")) {
@@ -112,21 +112,21 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
                 } else {
                     JSONObject error = new JSONObject();
                     error.put("message","TTS service is still initialzing.");
-                    error.put("code", TTS.INITIALIZING);
+                    error.put("code", CDVGlassTTS.INITIALIZING);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, error));
                 }
             } else if (action.equals("startup")) {
 
                 this.startupCallbackContext = callbackContext;
                 if (mTts == null) {
-                    state = TTS.INITIALIZING;
+                    state = CDVGlassTTS.INITIALIZING;
                     mTts = new TextToSpeech(cordova.getActivity().getApplicationContext(), this);
-            PluginResult pluginResult = new PluginResult(status, TTS.INITIALIZING);
+            PluginResult pluginResult = new PluginResult(status, CDVGlassTTS.INITIALIZING);
             pluginResult.setKeepCallback(true);
             // do not send this as onInit is more reliable: domaemon
             // startupCallbackContext.sendPluginResult(pluginResult);
                 } else {
-            PluginResult pluginResult = new PluginResult(status, TTS.INITIALIZING);
+            PluginResult pluginResult = new PluginResult(status, CDVGlassTTS.INITIALIZING);
             pluginResult.setKeepCallback(true);
             startupCallbackContext.sendPluginResult(pluginResult);
         }
@@ -173,7 +173,7 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
      * @return
      */
     private boolean isReady() {
-        return (state == GlassTTS.STARTED) ? true : false;
+        return (state == CDVGlassTTS.STARTED) ? true : false;
     }
 
     /**
@@ -217,8 +217,8 @@ public class CDVGlassTTS extends CordovaPlugin implements OnInitListener, OnUtte
 //            });
         }
         else if (status == TextToSpeech.ERROR) {
-            state = GlassTTS.STOPPED;
-            PluginResult result = new PluginResult(PluginResult.Status.ERROR, GlassTTS.STOPPED);
+            state = CDVGlassTTS.STOPPED;
+            PluginResult result = new PluginResult(PluginResult.Status.ERROR, CDVGlassTTS.STOPPED);
             result.setKeepCallback(false);
             this.startupCallbackContext.sendPluginResult(result);
         }
