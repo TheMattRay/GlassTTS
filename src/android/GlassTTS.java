@@ -75,7 +75,7 @@ public class GlassTTS extends CordovaPlugin implements OnInitListener, OnUtteran
                 } else {
                     JSONObject error = new JSONObject();
                     error.put("message","TTS service is still initialzing.");
-                    error.put("code", CDVGlassTTS.INITIALIZING);
+                    error.put("code", GlassTTS.INITIALIZING);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, error));
                 }
             } else if (action.equals("silence")) {
