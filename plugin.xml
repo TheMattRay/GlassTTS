@@ -12,6 +12,6 @@
 		</config-file>
 		<config-file parent="/*" target="AndroidManifest.xml">
 		</config-file>
-		<source-file src="src/android/GlassTTS.java" target-dir="src/com/themattray/glass/plugin/tts/GlassTTS" />
+		<source-file src="src/android/GlassTTS.java" target-dir="src/com/themattray/glass/plugin/tts" />
 	</platform>
 </plugin>
