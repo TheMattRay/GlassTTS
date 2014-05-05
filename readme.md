@@ -33,9 +33,32 @@ Note: You MUST wait until deviceReady to instantiate this or it will likely fail
     
 ## Available methods
 ### start
-`glassTTS.start(successCallback, failCallback)` Initiates the service that handles future calls.
+`glassTTS.start(successCallback, failCallback) ` Initiates the service that handles future calls.
 
-### stop
-`glassTTS.stop(successCallback, failCallback)` Stops the aforementioned service.
+### shutdown
+`glassTTS.shutdown(successCallback, failCallback) ` Stops the aforementioned service.
 
-...
+### speak
+`glassTTS.speak(text, successCallback, failCallback) ` Speaks the text when TTS is availiable.
+
+### interrupt
+`glassTTS.interrup(text, successCallback, failCallback) ` Breaks any active speaking and immediately begins speaking the specified text.
+
+### silence
+`glassTTS.silence(duration, successCallback, failCallback) ` Forces silence; useful in regulating the cadence of a long passage.
+
+### speed
+`glassTTS.speed(speed, successCallback, failCallback) ` Changes cadence of speech. Values should range from 30 to 500.
+
+### pitch
+`glassTTS.pitch(pitch, successCallback, failCallback) ` Changes the pitch. Values range from 30 to 300.
+
+### isLanguageAvailable
+`glassTTS.isLanguageAvailable(lang, successCallback, failCallback) ` Returns true/false if string of language is supported.
+
+### getLanguage
+`glassTTS.getLanguage(successCallback, failCallback) ` Returns the string of the current TTS language.
+
+### setLanguage
+`glassTTS.setLanguage(lang, successCallback, failCallback) ` Sets the TTS service language.
+
